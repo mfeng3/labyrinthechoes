@@ -1,0 +1,98 @@
+<title>Labyrinth Echoes</title>
+
+<head>
+  <style>
+    body {
+        background-color: rgb(0, 0, 0); 
+        background-size:cover; 
+        background-position:top; 
+        background-repeat:initial; 
+        height: 100vh; 
+        padding: 0;
+        margin: 0; 
+    }
+    </style>
+</head>
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Typing Animation with Spaces</title>
+<style>
+body {
+  font-family: 'Workbench', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 200px;
+  align-items:normal;
+  height: 100vh;
+  color: #ffffff;
+}
+#part1, #part2 {
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 20px;
+  border-right: .15em solid rgb(0, 0, 0);  /* Cursor like solid line */
+}
+
+#space {
+  height: 3em; /* 这里的3em大约等于三行文字的高度，可以根据需要调整 */
+}
+.nextButton {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  display: none; /* Initially hidden */
+  width: 27px;
+  height: 27px;
+          
+        }
+        .nextButton:hover {
+      filter: brightness(0.8);
+    }
+</style>
+</head>
+<body>
+
+  
+  <a href="Bedroom.html">
+    <img src="nextbutton.png" alt="Next" id="nextButton" class="nextButton">
+  </a>
+
+<div id="part1"></div>
+<div id="space"></div> <!-- 用于增加空白的div -->
+<div id="part2"></div>
+
+<script>
+function typeWriter(text, elementId, callback) {
+  let index = 0;
+  function nextChar() {
+    if (index < text.length) {
+      document.getElementById(elementId).innerHTML += text.charAt(index);
+      index++;
+      setTimeout(nextChar, 100); // Adjust typing speed
+    } else if (callback) {
+      callback(); // Call the callback function if provided
+    }
+  }
+  nextChar();
+}
+
+function shownextButton() {
+  document.getElementById('nextButton').style.display = 'block';
+}
+// Start the typing effect for the first part, then the second
+typeWriter("2060/07/30", "part1", function() {
+  // Add a delay before starting the second part
+  setTimeout(function() {
+    typeWriter("......Where am I?", "part2", function() {
+      setTimeout(shownextButton, 500); // Adjust delay as needed
+    });
+  }, 500); // Adjust delay between the parts as needed
+});
+
+</script>
+</body>
+</html>

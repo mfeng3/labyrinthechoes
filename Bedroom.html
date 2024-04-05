@@ -1,0 +1,37 @@
+<title>Labyrinth Echoes</title>
+
+<head>
+  <style>
+    body {
+        background-image: url(bedroom.gif); 
+        background-size:cover; 
+        background-position:top; 
+        background-repeat:initial; 
+        padding: 0;    /* 重置页面的内边距 */
+        overflow-x: hidden;
+        margin: 0; 
+    }
+</style>
+</head>
+
+<audio autoplay loop>
+  <source src="a future that couldn't be  an ethereal frutiger aero playlist.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
+
+<div id="content"></div>
+
+<script>
+// 假设有一个函数loadContent，它根据用户的操作加载新的内容到#content元素中
+function loadContent(page) {
+  // 使用fetch API从服务器获取内容
+  fetch(page)
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('content').innerHTML = html;
+    });
+}
+
+// 示例：加载新页面内容，无需刷新整个页面
+loadContent('nextPage.html');
+</script>

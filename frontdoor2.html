@@ -1,0 +1,158 @@
+<title>Labyrinth Echoes</title>
+<link rel="icon" type="image/ico" href="icon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Workbench&display=swap" rel="stylesheet">
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+  <style>
+    body {
+  background-image: url(door.png);
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat; /* 如果你不希望背景图重复，请使用no-repeat */
+  padding: 0;
+  overflow-x: hidden;
+  margin: 0;
+  background-attachment: fixed; 
+  z-index: 0;
+    }
+  
+
+
+body {
+  font-family: 'Workbench', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: normal;
+  height: 100vh;
+  color: #ffffff;
+  margin-left: 200px;
+}
+
+.content {
+  margin-top: 550px; /* 内容向下偏移100像素 */
+            width: 100%; /* 宽度 */
+            height: calc(100% - 100px); /* 调整高度，防止底部被裁切 */
+            overflow-y: auto; /* 内容超出时允许垂直滚动 */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: normal;
+}
+
+.text-container   #part1, #part2 {
+  display: inline-block; /* 使容器仅占据文字所需空间 */
+ 
+  color: white;
+  padding: 2px;
+  margin: 0;
+  font-size: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 16px;
+}
+
+
+
+#space {
+  height: 1em; 
+}
+
+  
+  #buttonsContainer {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 居中调整 */
+    display: none;
+  }
+
+</style>
+</head>
+
+<body>
+  <div class="content" id="content">
+    <div id="part1" class="text-container"></div>
+    <div id="space"></div> <!-- 用于增加空白的div -->
+    <div id="part2" class="text-container"></div>
+  
+</div>
+<div id="buttonsContainer" style="text-align: center;">
+</div>
+
+<script>
+
+
+
+function typeWriter(text, elementId, callback) {
+    let index = 0;
+    function nextChar() {
+        if (index < text.length) {
+            const charSpan = document.createElement('span');
+            charSpan.textContent = text.charAt(index);
+            charSpan.style.backgroundColor = 'rgb(4,80,0)'; // 为每个字符设置背景色
+            charSpan.style.color = 'white'; // 文字颜色设为白色
+            charSpan.style.padding = '1px'; // 设置内边距
+            document.getElementById(elementId).appendChild(charSpan);
+            index++;
+            setTimeout(nextChar, 35);
+        } else if (callback) {
+          setTimeout(callback, 700); 
+        }
+    }
+    nextChar();
+}
+
+function shownextButton() {
+    setTimeout(function() {
+      document.getElementById('content').style.display = 'none';
+        const buttonsContainer = document.getElementById('buttonsContainer');
+        buttonsContainer.style.display = 'flex'; // 使用flex布局使按钮水平排列
+        buttonsContainer.style.justifyContent = 'center'; // 按钮居中显示
+        buttonsContainer.style.gap = '40px'; // 设置按钮之间的间距
+    }, 2500);
+        const button1 = document.createElement('img');
+    button1.src = 'livingroom.png'; // 确保这个路径是正确的
+    button1.style.cursor = 'pointer'; // 鼠标悬停时改变光标
+       
+        button1.onclick = function() {
+            window.location.href = 'livingroom2.html'; // 连接到下一个页面
+        };
+        button1.onmouseover = function() {
+            this.style.filter = 'brightness(70%)'; // 鼠标悬停时图片变深
+        };
+        button1.onmouseleave = function() {
+            this.style.filter = 'brightness(100%)'; // 鼠标离开时恢复
+        };
+      
+        const button2 = document.createElement('img');
+    button2.src = 'Kitchen.png'; // 确保这个路径是正确的
+    button2.style.cursor = 'pointer'; // 鼠标悬停时改变光标
+       
+        button2.onclick = function() {
+            window.location.href = 'Kitchen.html'; // 连接到下一个页面
+        };
+        button2.onmouseover = function() {
+            this.style.filter = 'brightness(70%)'; // 鼠标悬停时图片变深
+        };
+        button2.onmouseleave = function() {
+            this.style.filter = 'brightness(100%)'; // 鼠标离开时恢复
+        };
+    buttonsContainer.appendChild(button1);
+    buttonsContainer.appendChild(button2);
+}
+
+typeWriter("Shit...It's locked! I need to find the key.", "part1", function() {
+    typeWriter("Well, I hope they have a key left in the house.", "part2", 
+ shownextButton); // 文本显示完成后显示按钮
+});
+
+</script>
+</body>

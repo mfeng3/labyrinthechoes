@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Labyrinth Echoes</title>
+  <link rel="icon" type="image/ico" href="icon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Workbench&display=swap" rel="stylesheet">
+  
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      font-family: 'Workbench', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      height: 100vh;
+    }
+
+    .background-section {
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      background-image: url('livingroom3.GIF');
+      background-size: cover;
+      background-position: center 43%;
+      background-repeat: no-repeat;
+      z-index: -1;
+    }
+
+    #invisibleButtonLink {
+    display: inline-block; /* 或者其他显示方式，取决于需要 */
+    position: absolute;
+    top: 63%; /* 调整为适合的位置 */
+    left: 0%;
+    transform: translate(-50%, -50%);
+    width: 420px; /* 按钮宽度 */
+    height: 240px; /* 按钮高度 */
+    background: rgba(0, 0, 0, 0); /* 完全透明 */
+    border: none; /* 无边框 */
+    cursor: pointer; /* 悬停时鼠标变为手形 */
+    z-index: 100; /* 确保链接在最上面 */
+    text-decoration: none; /* 去除下划线 */
+  }
+  #invisibleButton2Link {
+    display: inline-block; /* 或者其他显示方式，取决于需要 */
+    position: absolute;
+    top: 54%; /* 调整为适合的位置 */
+    left: 55%;
+    transform: translate(-50%, -50%);
+    width: 155px; /* 按钮宽度 */
+    height: 240px; /* 按钮高度 */
+    background: rgba(0, 0, 0, 0); /* 完全透明 */
+    border: none; /* 无边框 */
+    cursor: pointer; /* 悬停时鼠标变为手形 */
+    z-index: 101; /* 确保链接在最上面 */
+    text-decoration: none; /* 去除下划线 */
+  }
+  #invisibleButton3Link {
+    display: inline-block; /* 或者其他显示方式，取决于需要 */
+    position: absolute;
+    top: 64%; /* 调整为适合的位置 */
+    left: 89%;
+    transform: translate(-50%, -50%);
+    width: 320px; /* 按钮宽度 */
+    height: 300px; /* 按钮高度 */
+    background: rgba(0,0,0,0); /* 完全透明 */
+    border: none; /* 无边框 */
+    cursor: pointer; /* 悬停时鼠标变为手形 */
+    z-index: 102; /* 确保链接在最上面 */
+    text-decoration: none; /* 去除下划线 */
+  }
+
+    #buttonsContainer {
+      position: fixed;
+      top: 7%;
+      left: 5%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      z-index: 10;
+    }
+
+    .button-img {
+      cursor: pointer;
+    }
+    
+    .button-img:hover {
+  filter: brightness(70%);
+    }
+  </style>
+</head>
+<body>
+  <div class="background-section"></div>
+  
+  <a id="invisibleButtonLink" href="tv.html"></a>
+  <a id="invisibleButton2Link" href="notes.html"></a>
+  <a id="invisibleButton3Link" href="fish.html"></a>
+
+  <div id="buttonsContainer" style="text-align: center;">
+    <!-- Buttons will be added here by JavaScript -->
+  </div>
+
+  <script>
+    function addButtons() {
+      const buttonsContainer = document.getElementById('buttonsContainer');
+
+      const button1 = document.createElement('img');
+      button1.src = 'Kitchen3.png';
+      button1.className = 'button-img';
+      button1.alt = 'Kitchen';
+      button1.style.width = '80px';
+      button1.style.height = '40px';
+      button1.onclick = function() {
+          window.location.href = 'Kitchen2.html';
+      };
+
+      const button2 = document.createElement('img');
+      button2.src = 'bedroom2.png';
+      button2.className = 'button-img';
+      button2.alt = 'Bedroom';
+      button2.style.width = '80px';
+      button2.style.height = '40px';
+      button2.onclick = function() {
+          window.location.href = 'Bedroom3.html';
+      };
+
+      buttonsContainer.appendChild(button1);
+      buttonsContainer.appendChild(button2);
+    }
+
+    // Call addButtons on page load
+    window.onload = addButtons;
+  </script>
+</body>
+</html>

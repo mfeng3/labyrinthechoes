@@ -1,0 +1,181 @@
+<title>Labyrinth Echoes</title>
+<link rel="icon" type="image/ico" href="icon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Workbench&display=swap" rel="stylesheet">
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+  <style>
+    body {
+  background-image: url(IMG_3336\ 2.GIF);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; /* 如果你不希望背景图重复，请使用no-repeat */
+  padding: 0;
+  overflow-x: hidden;
+  margin: 0;
+  background-attachment: fixed; 
+    }
+
+  .content {
+  margin-top: 550px; /* 内容向下偏移100像素 */
+            width: 100%; /* 宽度 */
+            height: calc(100% - 100px); /* 调整高度，防止底部被裁切 */
+            overflow-y: auto; /* 内容超出时允许垂直滚动 */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: normal;
+            z-index: 1; 
+            margin-left: 400px;
+}
+
+.text-container   #part1, #part2 {
+  display: inline-block; /* 使容器仅占据文字所需空间 */
+
+  color: white;
+  padding: 2px;
+  margin: 0;
+  font-size: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 16px;
+}
+
+
+
+#space {
+  height: 1em; 
+}
+
+ 
+#buttonsContainer {
+    position: fixed;
+    top: 7%;
+    left: 5%;
+    display: none;
+  }
+
+  #invisibleButtonLink {
+    display: inline-block; /* 或者其他显示方式，取决于需要 */
+    position: absolute;
+    top: 63%; /* 调整为适合的位置 */
+    left: 0%;
+    transform: translate(-50%, -50%);
+    width: 420px; /* 按钮宽度 */
+    height: 240px; /* 按钮高度 */
+    background: rgba(0, 0, 0, 0); /* 完全透明 */
+    border: none; /* 无边框 */
+    cursor: pointer; /* 悬停时鼠标变为手形 */
+    z-index: 100; /* 确保链接在最上面 */
+    text-decoration: none; /* 去除下划线 */
+  }
+
+
+  #invisibleButton2Link {
+    display: inline-block; /* 或者其他显示方式，取决于需要 */
+    position: absolute;
+    top: 54%; /* 调整为适合的位置 */
+    left: 55%;
+    transform: translate(-50%, -50%);
+    width: 155px; /* 按钮宽度 */
+    height: 240px; /* 按钮高度 */
+    background: rgba(0, 0, 0, 0); /* 完全透明 */
+    border: none; /* 无边框 */
+    cursor: pointer; /* 悬停时鼠标变为手形 */
+    z-index: 101; /* 确保链接在最上面 */
+    text-decoration: none; /* 去除下划线 */
+  }
+
+</style>
+</head>
+
+  <body>
+    <div class="background-section"></div> 
+  </body>
+  
+  <div class="content" id="content">
+    <div id="part1" class="text-container"></div>
+    <div id="space"></div> <!-- 用于增加空白的div -->
+    <div id="part2" class="text-container"></div>
+  
+</div>
+<div id="buttonsContainer" style="text-align: center;">
+</div>
+<a id="invisibleButtonLink" href="tv.html"></a>
+<a id="invisibleButton2Link" href="notes.html"></a>
+
+<script>
+
+
+function typeWriter(text, elementId, callback) {
+    let index = 0;
+    function nextChar() {
+        if (index < text.length) {
+            const charSpan = document.createElement('span');
+            charSpan.textContent = text.charAt(index);
+            charSpan.style.backgroundColor = 'rgb(4,80,0)'; // 为每个字符设置背景色
+            charSpan.style.color = 'white'; // 文字颜色设为白色
+            charSpan.style.padding = '1px'; // 设置内边距
+            document.getElementById(elementId).appendChild(charSpan);
+            index++;
+            setTimeout(nextChar, 35);
+        } else if (callback) {
+            setTimeout (callback, 500); // 在文本显示完成后等待1.5秒
+        }
+    }
+    nextChar();
+}
+
+function shownextButton() {
+    setTimeout(function() {
+      document.getElementById('content').style.display = 'none';
+        const buttonsContainer = document.getElementById('buttonsContainer');
+        buttonsContainer.style.display = 'block';
+        buttonsContainer.style.display = 'flex';
+        buttonsContainer.style.flexDirection = 'column'; 
+        buttonsContainer.style.justifyContent = 'center'; // 按钮居中显示
+        buttonsContainer.style.gap = '15px';
+    }, 1800);
+        const button1 = document.createElement('img');
+    button1.src = 'Kitchen3.png'; // 确保这个路径是正确的
+    button1.style.cursor = 'pointer'; // 鼠标悬停时改变光标
+       
+        button1.onclick = function() {
+            window.location.href = 'Kitchen.html'; // 连接到下一个页面
+        };
+        button1.onmouseover = function() {
+            this.style.filter = 'brightness(70%)'; // 鼠标悬停时图片变深
+        };
+        button1.onmouseleave = function() {
+            this.style.filter = 'brightness(100%)'; // 鼠标离开时恢复
+        };
+    buttonsContainer.appendChild(button1);
+
+    const button2 = document.createElement('img');
+    button2.src = 'bedroom2.png'; // 确保这个路径是正确的
+    button2.style.cursor = 'pointer'; // 鼠标悬停时改变光标
+       
+        button2.onclick = function() {
+            window.location.href = 'Bedroom3.html'; // 连接到下一个页面
+        };
+        button2.onmouseover = function() {
+            this.style.filter = 'brightness(70%)'; // 鼠标悬停时图片变深
+        };
+        button2.onmouseleave = function() {
+            this.style.filter = 'brightness(100%)'; // 鼠标离开时恢复
+        };
+    buttonsContainer.appendChild(button2);
+
+
+}
+
+typeWriter("I guess I'll look in the living room first.", "part1", function() {
+    typeWriter("(Click on the items to view them)", "part2", 
+ shownextButton); // 文本显示完成后显示按钮
+});

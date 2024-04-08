@@ -1,0 +1,159 @@
+<title>Labyrinth Echoes</title>
+<link rel="icon" type="image/ico" href="icon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Workbench&display=swap" rel="stylesheet">
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      font-family: 'Workbench', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      height: 100vh;
+    }
+
+    .background-section {
+      position:absolute;
+      width: 100vw; /* 视口宽度 */
+  height: 100vh;
+  background-image: url(livingroom3.GIF);
+  background-size: cover;
+  background-position: center 43%;
+  background-repeat: no-repeat; 
+  z-index: -1; 
+  filter: brightness(0.4);
+    }
+
+.pic {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+ 
+}
+
+</style>
+
+
+<img class="pic" src="news.png" alt="pic">
+
+    <body>
+  <body>
+    <div class="background-section"></div> 
+  </body>
+
+  <style>
+  
+    
+    .content {
+      margin-top: 550px; /* 内容向下偏移100像素 */
+                width: 100%; /* 宽度 */
+                height: calc(100% - 100px); /* 调整高度，防止底部被裁切 */
+                overflow-y: auto; /* 内容超出时允许垂直滚动 */
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: normal;
+                margin-left: 400px;
+    }
+    
+    .text-container {
+      display: inline-block; /* 使容器仅占据文字所需空间 */
+     
+      color: white;
+      padding: 2px;
+      margin: 0;
+      font-size: 20px;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    
+    
+    #part1, #part2 {
+      white-space: nowrap;
+      overflow: hidden;
+      font-size: 16px;
+    }
+    
+    #space {
+      height: 1em; /* 这里的3em大约等于三行文字的高度，可以根据需要调整 */
+    }
+    .nextButton {
+      position: fixed;
+      bottom: 50px;
+      right: 50px;
+      display: none; /* Initially hidden */
+      width: 27px;
+      height: 27px;
+              
+            }
+            .nextButton:hover {
+          filter: brightness(0.8);
+        }
+    </style>
+    </head>
+    
+    <body>
+      <a href="livingroom(notext).html">
+        <img src="nextbutton.png" alt="Next" id="nextButton" class="nextButton">
+      </a>
+    
+      <div class="content">
+        <div id="part1" class="text-container"></div>
+        <div id="space"></div> <!-- 用于增加空白的div -->
+        <div id="part2" class="text-container"></div>
+        
+    </div>
+    
+    <script>
+    function typeWriter(text, elementId, callback) {
+      let index = 0;
+      const element = document.getElementById(elementId);
+      
+      function nextChar() {
+        if (index < text.length) {
+          const charSpan = document.createElement('span'); // 创建一个新的span元素
+                charSpan.textContent = text.charAt(index); // 设置span的文本为当前字符
+                charSpan.style.backgroundColor = 'rgb(4,80,0)'; // 为每个字符设置黑色背景
+                charSpan.style.color = 'white'; // 文字颜色设为白色
+                charSpan.style.padding = '1px'; // 设置内边距
+                element.appendChild(charSpan); // 将span添加到元素中
+    
+          index++;
+          setTimeout(nextChar, 35); // Adjust typing speed
+        } else if (callback) {
+          callback(); // Call the callback function if provided
+        }
+      }
+      nextChar();
+    }
+    
+    function shownextButton() {
+      document.getElementById('nextButton').style.display = 'block';
+    }
+    // Start the typing effect for the first part, then the second
+    typeWriter("Sounds terrible.", "part1", function() {
+      // Add a delay before starting the second part
+      setTimeout(function() {
+        typeWriter("I knew something like this would happen when they had too much power over us.", "part2", function() {
+          setTimeout(shownextButton, 500); // Adjust delay as needed
+        });
+      }, 500); // Adjust delay between the parts as needed
+    });
+    
+    </script>
+    </body>
+    

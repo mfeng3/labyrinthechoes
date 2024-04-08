@@ -122,7 +122,25 @@
     text-decoration: none; /* 去除下划线 */
   }
 
-</style>
+  #buttonsContainer {
+      position: fixed;
+      top: 7%;
+      left: 5%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      z-index: 10;
+    }
+
+    .button-img {
+      cursor: pointer;
+    }
+    
+    .button-img:hover {
+  filter: brightness(70%);
+    }
+  </style>
 </head>
 
   <body>
@@ -141,56 +159,26 @@
 <a id="invisibleButtonjarLink" href="jar.html"></a>
 <a id="invisibleButtonplateLink" href="plate.html"></a>
 
+
 <script>
+  function addButtons() {
+    const buttonsContainer = document.getElementById('buttonsContainer');
+
+    const button1 = document.createElement('img');
+    button1.src = 'livingroomicon.png';
+    button1.className = 'button-img';
+    button1.alt = 'Kitchen';
+    button1.style.width = '80px';
+    button1.style.height = '40px';
+    button1.onclick = function() {
+        window.location.href = 'livingroom(notext).html';
+    };
 
 
-    function addButtons() {
-      const buttonsContainer = document.getElementById('buttonsContainer');
-
-      const button1 = document.createElement('img');
-      button1.src = 'livingroom.png';
-      button1.className = 'button-img';
-      button1.alt = 'Kitchen';
-      button1.style.width = '80px';
-      button1.style.height = '40px';
-      button1.onclick = function() {
-          window.location.href = 'Kitchen2.html';
-      };
-
-      const button2 = document.createElement('img');
-      button2.src = 'bedroom2.png';
-      button2.className = 'button-img';
-      button2.alt = 'Bedroom';
-      button2.style.width = '80px';
-      button2.style.height = '40px';
-      button2.onclick = function() {
-          window.location.href = 'Bedroom3.html';
-      };
-
-      buttonsContainer.appendChild(button1);
-      buttonsContainer.appendChild(button2);
-    }
-
-function typeWriter(text, elementId, callback) {
-    let index = 0;
-    function nextChar() {
-        if (index < text.length) {
-            const charSpan = document.createElement('span');
-            charSpan.textContent = text.charAt(index);
-            charSpan.style.backgroundColor = 'rgb(4,80,0)'; // 为每个字符设置背景色
-            charSpan.style.color = 'white'; // 文字颜色设为白色
-            charSpan.style.padding = '1px'; // 设置内边距
-            document.getElementById(elementId).appendChild(charSpan);
-            index++;
-            setTimeout(nextChar, 35);
-        } else if (callback) {
-            setTimeout (callback, 500); // 在文本显示完成后等待1.5秒
-        }
-    }
-    nextChar();
-}
-
-function shownextButton() {
+    buttonsContainer.appendChild(button1);
+  
+  }
+  function shownextButton() {
     setTimeout(function() {
       document.getElementById('content').style.display = 'none';
         const buttonsContainer = document.getElementById('buttonsContainer');
@@ -199,9 +187,10 @@ function shownextButton() {
         buttonsContainer.style.flexDirection = 'column'; 
         buttonsContainer.style.justifyContent = 'center'; // 按钮居中显示
         buttonsContainer.style.gap = '15px';
+        buttonsContainer.style.width = '80px';
     }, 1800);
         const button1 = document.createElement('img');
-    button1.src = 'Kitchen3.png'; // 确保这个路径是正确的
+    button1.src = 'livingroomicon.png'; // 确保这个路径是正确的
     button1.style.cursor = 'pointer'; // 鼠标悬停时改变光标
        
         button1.onclick = function() {
@@ -214,26 +203,9 @@ function shownextButton() {
             this.style.filter = 'brightness(100%)'; // 鼠标离开时恢复
         };
     buttonsContainer.appendChild(button1);
-
-    const button2 = document.createElement('img');
-    button2.src = 'bedroom2.png'; // 确保这个路径是正确的
-    button2.style.cursor = 'pointer'; // 鼠标悬停时改变光标
-       
-        button2.onclick = function() {
-            window.location.href = 'Bedroom3.html'; // 连接到下一个页面
-        };
-        button2.onmouseover = function() {
-            this.style.filter = 'brightness(70%)'; // 鼠标悬停时图片变深
-        };
-        button2.onmouseleave = function() {
-            this.style.filter = 'brightness(100%)'; // 鼠标离开时恢复
-        };
-    buttonsContainer.appendChild(button2);
-
-
-}
-
-typeWriter("I guess I'll look in the living room first.", "part1", function() {
-    typeWriter("(Click on the items to view them)", "part2", 
- shownextButton); // 文本显示完成后显示按钮
-});
+      }
+  // Call addButtons on page load
+  window.onload = addButtons;
+</script>
+</body>
+</html>

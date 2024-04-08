@@ -1,5 +1,7 @@
 <title>Labyrinth Echoes</title>
+
 <link rel="icon" type="image/ico" href="icon.ico">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Workbench&display=swap" rel="stylesheet">
@@ -9,18 +11,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
   <style>
-    body {
-  background-image: url(IMG_3336\ 2.GIF);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat; /* 如果你不希望背景图重复，请使用no-repeat */
-  padding: 0;
-  overflow-x: hidden;
-  margin: 0;
-  background-attachment: fixed; 
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      font-family: 'Workbench', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      height: 100vh;
     }
 
-  .content {
+    .background-section {
+      position:absolute;
+      width: 100vw; /* 视口宽度 */
+  height: 100vh;
+  background-image: url(IMG_3336\ 2.GIF);
+  background-size: cover;
+  background-position: center 43%;
+  background-repeat: no-repeat; 
+  z-index: -1; 
+    }
+
+    
+.content {
   margin-top: 550px; /* 内容向下偏移100像素 */
             width: 100%; /* 宽度 */
             height: calc(100% - 100px); /* 调整高度，防止底部被裁切 */
@@ -141,13 +159,14 @@ function shownextButton() {
         buttonsContainer.style.flexDirection = 'column'; 
         buttonsContainer.style.justifyContent = 'center'; // 按钮居中显示
         buttonsContainer.style.gap = '15px';
+        buttonsContainer.style.width = '80px';
     }, 1800);
         const button1 = document.createElement('img');
-    button1.src = 'Kitchen3.png'; // 确保这个路径是正确的
+    button1.src = 'livingroomicon.png'; // 确保这个路径是正确的
     button1.style.cursor = 'pointer'; // 鼠标悬停时改变光标
        
         button1.onclick = function() {
-            window.location.href = 'Kitchen.html'; // 连接到下一个页面
+            window.location.href = 'livingroom(notext).html'; // 连接到下一个页面
         };
         button1.onmouseover = function() {
             this.style.filter = 'brightness(70%)'; // 鼠标悬停时图片变深
@@ -157,25 +176,14 @@ function shownextButton() {
         };
     buttonsContainer.appendChild(button1);
 
-    const button2 = document.createElement('img');
-    button2.src = 'bedroom2.png'; // 确保这个路径是正确的
-    button2.style.cursor = 'pointer'; // 鼠标悬停时改变光标
-       
-        button2.onclick = function() {
-            window.location.href = 'Bedroom3.html'; // 连接到下一个页面
-        };
-        button2.onmouseover = function() {
-            this.style.filter = 'brightness(70%)'; // 鼠标悬停时图片变深
-        };
-        button2.onmouseleave = function() {
-            this.style.filter = 'brightness(100%)'; // 鼠标离开时恢复
-        };
-    buttonsContainer.appendChild(button2);
-
 
 }
 
-typeWriter("I guess I'll look in the living room first.", "part1", function() {
+typeWriter("I guess I'll look in kitchen first.", "part1", function() {
     typeWriter("(Click on the items to view them)", "part2", 
  shownextButton); // 文本显示完成后显示按钮
 });
+
+</script>
+</body>
+

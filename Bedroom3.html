@@ -7,3 +7,193 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      font-family: 'Workbench', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      height: 100vh;
+    }
+
+    body {
+  background-image: url(bedroom.gif);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; /* 如果你不希望背景图重复，请使用no-repeat */
+  padding: 0;
+  overflow-x: hidden;
+  margin: 0;
+  background-attachment: fixed; 
+    }
+    
+
+    .content {
+  margin-top: 550px; /* 内容向下偏移100像素 */
+            width: 100%; /* 宽度 */
+            height: calc(100% - 100px); /* 调整高度，防止底部被裁切 */
+            overflow-y: auto; /* 内容超出时允许垂直滚动 */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: normal;
+            z-index: 1; 
+            margin-left: 400px;
+}
+
+.text-container   #part1, #part2 {
+  display: inline-block; /* 使容器仅占据文字所需空间 */
+
+  color: white;
+  padding: 2px;
+  margin: 0;
+  font-size: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 16px;
+}
+
+
+
+#space {
+  height: 1em; 
+}
+
+ 
+#buttonsContainer {
+    position: fixed;
+    top: 7%;
+    left: 5%;
+    display: none;
+  }
+
+  #invisibleButtonlaptopLink {
+    display: inline-block; /* 或者其他显示方式，取决于需要 */
+    position: absolute;
+    top: 64%; /* 调整为适合的位置 */
+    left: 30%;
+    transform: translate(-50%, -50%);
+    width: 266px; /* 按钮宽度 */
+    height: 150px; /* 按钮高度 */
+    background: rgba(0, 0, 0, 0); /* 完全透明 */
+    border: none; /* 无边框 */
+    cursor: pointer; /* 悬停时鼠标变为手形 */
+    z-index: 100; /* 确保链接在最上面 */
+    text-decoration: none; /* 去除下划线 */
+  }
+
+
+  #invisibleButtonscheduleLink {
+    display: inline-block; /* 或者其他显示方式，取决于需要 */
+    position: absolute;
+    top: 37%; /* 调整为适合的位置 */
+    left: 00%;
+    transform: translate(-50%, -50%);
+    width: 425px; /* 按钮宽度 */
+    height: 155px; /* 按钮高度 */
+    background: rgba(0, 0, 0, 0); /* 完全透明 */
+    border: none; /* 无边框 */
+    cursor: pointer; /* 悬停时鼠标变为手形 */
+    z-index: 101; /* 确保链接在最上面 */
+    text-decoration: none; /* 去除下划线 */
+  }
+    #invisibleButtonposterLink {
+    display: inline-block; /* 或者其他显示方式，取决于需要 */
+    position: absolute;
+    top: 25%; /* 调整为适合的位置 */
+    left: 27%;
+    transform: translate(-50%, -50%);
+    width: 200px; /* 按钮宽度 */
+    height: 265px; /* 按钮高度 */
+    background: rgba(0,0,0,0); /* 完全透明 */
+    border: none; /* 无边框 */
+    cursor: pointer; /* 悬停时鼠标变为手形 */
+    z-index: 102; /* 确保链接在最上面 */
+    text-decoration: none; /* 去除下划线 */
+  }
+  #invisibleButtonwindowLink {
+    display: inline-block; /* 或者其他显示方式，取决于需要 */
+    position: absolute;
+    top: 1%; /* 调整为适合的位置 */
+    left: 94%;
+    transform: translate(-50%, -50%);
+    width: 330px; /* 按钮宽度 */
+    height: 1380px; /* 按钮高度 */
+    background: rgba(0,0,0,0); /* 完全透明 */
+    border: none; /* 无边框 */
+    cursor: pointer; /* 悬停时鼠标变为手形 */
+    z-index: 102; /* 确保链接在最上面 */
+    text-decoration: none; /* 去除下划线 */
+  }
+  #buttonsContainer {
+      position: fixed;
+      top: 7%;
+      left: 5%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      z-index: 10;
+    }
+
+    .button-img {
+      cursor: pointer;
+    }
+    
+    .button-img:hover {
+  filter: brightness(70%);
+    }
+  </style>
+</head>
+
+  <body>
+    <div class="background-section"></div> 
+  </body>
+  
+  <div class="content" id="content">
+    <div id="part1" class="text-container"></div>
+    <div id="space"></div> <!-- 用于增加空白的div -->
+    <div id="part2" class="text-container"></div>
+  
+</div>
+<div id="buttonsContainer" style="text-align: center;">
+</div>
+<a id="invisibleButtonlaptopLink" href="laptop.html"></a>
+<a id="invisibleButtonscheduleLink" href="schedule.html"></a>
+<a id="invisibleButtonposterLink" href="poster.html"></a>
+<a id="invisibleButtonwindowLink" href="window.html"></a>
+
+<script>
+  function addButtons() {
+    const buttonsContainer = document.getElementById('buttonsContainer');
+
+    const button1 = document.createElement('img');
+    button1.src = 'livingroomicon.png';
+    button1.className = 'button-img';
+    button1.alt = 'Kitchen';
+    button1.style.width = '80px';
+    button1.style.height = '40px';
+    button1.onclick = function() {
+        window.location.href = 'livingroom(notext).html';
+    };
+
+
+    buttonsContainer.appendChild(button1);
+  
+  }
+
+  // Call addButtons on page load
+  window.onload = addButtons;
+</script>
+</body>
+</html>

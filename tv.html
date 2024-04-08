@@ -67,7 +67,7 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: normal;
-                margin-left: 200px;
+                margin-left: 400px;
     }
     
     .text-container {
@@ -107,7 +107,7 @@
     </head>
     
     <body>
-      <a href="livingroom(notext).html">
+      <a href="tv2.html">
         <img src="nextbutton.png" alt="Next" id="nextButton" class="nextButton">
       </a>
     
@@ -145,10 +145,10 @@
       document.getElementById('nextButton').style.display = 'block';
     }
     // Start the typing effect for the first part, then the second
-    typeWriter("'...A data leakage has been exposed in the Spiritual Network.'", "part1", function() {
+    typeWriter("'...A data leakage has been exposed in the Spiritual Network.", "part1", function() {
       // Add a delay before starting the second part
       setTimeout(function() {
-        typeWriter("'Thousands of people have reported that their mental data has been lost or accessed by strangers.'", "part2", function() {
+        typeWriter("Thousands of people have reported that their mental data has been lost or accessed by strangers.'", "part2", function() {
           setTimeout(shownextButton, 500); // Adjust delay as needed
         });
       }, 500); // Adjust delay between the parts as needed

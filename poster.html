@@ -157,10 +157,10 @@
       document.getElementById('nextButton').style.display = 'block';
     }
     // Start the typing effect for the first part, then the second
-    typeWriter("Doctor Who! Good taste...but now is not the time to think about that.", "part1", function() {
+    typeWriter("The Last of Us and Doctor Who! Good taste...", "part1", function() {
       // Add a delay before starting the second part
       setTimeout(function() {
-        typeWriter("", "part2", function() {
+        typeWriter("But now is not the time to think about that.", "part2", function() {
           setTimeout(shownextButton, 500); // Adjust delay as needed
         });
       }, 100); // Adjust delay between the parts as needed

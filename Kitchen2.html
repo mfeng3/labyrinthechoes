@@ -161,6 +161,25 @@
 
 
 <script>
+
+function displayText(text, elementId, callback) {
+    const element = document.getElementById(elementId);
+    // 创建一个span元素来包含文本
+    const textSpan = document.createElement('span');
+    textSpan.textContent = text; // 设置文本内容
+    // 应用样式
+    textSpan.style.backgroundColor = 'rgb(4,80,0)'; // 设置背景色
+    textSpan.style.color = 'white'; // 设置字体颜色
+    textSpan.style.padding = '1px'; // 设置内边距
+    // 清空原有内容并添加新的span元素
+    element.innerHTML = ''; // 清除原有内容
+    element.appendChild(textSpan); // 添加新的文本元素
+
+    if (callback) {
+        setTimeout(callback, 500); // 如果需要，之后可以调用回调函数
+    }
+}
+
   function addButtons() {
     const buttonsContainer = document.getElementById('buttonsContainer');
 
@@ -178,34 +197,14 @@
     buttonsContainer.appendChild(button1);
   
   }
-  function shownextButton() {
-    setTimeout(function() {
-      document.getElementById('content').style.display = 'none';
-        const buttonsContainer = document.getElementById('buttonsContainer');
-        buttonsContainer.style.display = 'block';
-        buttonsContainer.style.display = 'flex';
-        buttonsContainer.style.flexDirection = 'column'; 
-        buttonsContainer.style.justifyContent = 'center'; // 按钮居中显示
-        buttonsContainer.style.gap = '15px';
-        buttonsContainer.style.width = '80px';
-    }, 1800);
-        const button1 = document.createElement('img');
-    button1.src = 'livingroomicon.png'; // 确保这个路径是正确的
-    button1.style.cursor = 'pointer'; // 鼠标悬停时改变光标
-       
-        button1.onclick = function() {
-            window.location.href = 'livingroom(notext).html'; // 连接到下一个页面
-        };
-        button1.onmouseover = function() {
-            this.style.filter = 'brightness(70%)'; // 鼠标悬停时图片变深
-        };
-        button1.onmouseleave = function() {
-            this.style.filter = 'brightness(100%)'; // 鼠标离开时恢复
-        };
-    buttonsContainer.appendChild(button1);
-      }
+
   // Call addButtons on page load
   window.onload = addButtons;
+
+  displayText("(Click on the items to view them)", "part1", function() {
+    displayText("", "part2", shownextButton);
+});
+
 </script>
 </body>
 </html>

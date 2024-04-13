@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Labyrinth Echoes</title>
+  <link rel="icon" type="image/ico" href="icon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Workbench&display=swap" rel="stylesheet">
+  
+  
+    <head>
+      <style>
+        body {
+      background-color: black;
+        }
+    </style>
+    </head>
+    
+   <style>
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Prevent scrollbar from appearing */
+            color: white; /* Text color */
+            font-family: Workbench, sans-serif; /* Font style */
+            display: flex;
+            align-items: flex-end; /* Start the text at the bottom */
+            justify-content: center;
+        }
+
+        @keyframes scrollUp {
+            0% {
+                transform: translateY(100%); /* Start below the screen */
+            }
+            100% {
+                transform: translateY(-100%); /* End above the screen */
+            }
+        }
+
+        .credits {
+          font-size: 20px;
+            position: relative;
+            white-space: pre-wrap; /* Respect newlines and spaces */
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: scrollUp 40s linear 1 forwards; /* Adjust timing as necessary */
+            line-height: 1.6; /* Increased line spacing */
+        }
+    
+        #imageButton {
+            display: none; /* Initially hidden */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="credits">
+      ENDING 2
+      
+      As the system alert disappeared, I was allowed to stay here.
+I think I've more or less understood everything.
+This is Dave's spiritual world, and I wasn't supposed to be here.
+After the malfunction in the spiritual network, a vast amount of mental data was leaked, 
+and Dave was probably one of the victims.
+And I, while on my way to my own spiritual world, accidentally entered his mental world due to an error.
+Since none of my mental data is here,
+I can't remember anything about myself.
+What should I do now? Will someone take me back to my world?
+Would everything be better if I returned to reality?
+
+
+
+
+
+        Labyrinth Echoes
+        Directed by Monica Feng
+        Produced by Monica Feng
+        Background pixel art by Saif Adnan, Pixel Jeff, Chatgpt, Blear25, @minimoss(tumblr), @7her4ja(tumblr)
+        Thank you for playing!
+        Copyright © 2024 Monica Feng
+  </div>
+
+<img id="imageButton" src="rewind.png" alt="Continue" onclick="confirmRedirect();">
+
+<script>
+    const credits = document.querySelector('.credits');
+    credits.addEventListener('animationend', () => {
+        document.getElementById('imageButton').style.display = 'block'; // Show the button after animation
+    });
+
+    function confirmRedirect() {
+        if (confirm("This will redirect you to the security questions. Are you sure you want to proceed?")) {
+            window.location.href = 'question1.html'; // Redirect to next page
+        } else {
+
+        }
+      }
+  </script>
+</body>
+</html>

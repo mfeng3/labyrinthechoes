@@ -120,6 +120,22 @@
     cursor: pointer; /* 悬停时鼠标变为手形 */
     z-index: 102; /* 确保链接在最上面 */
     text-decoration: none; /* 去除下划线 */
+    
+  }
+  #invisibleButtonposter2Link {
+    display: inline-block; /* 或者其他显示方式，取决于需要 */
+    position: absolute;
+    top: 17%; /* 调整为适合的位置 */
+    left: 38%;
+    transform: translate(-50%, -50%);
+    width: 110px; /* 按钮宽度 */
+    height: 160px; /* 按钮高度 */
+    background: rgba(0,0,0,0); /* 完全透明 */
+    border: none; /* 无边框 */
+    cursor: pointer; /* 悬停时鼠标变为手形 */
+    z-index: 102; /* 确保链接在最上面 */
+    text-decoration: none; /* 去除下划线 */
+    
   }
   #invisibleButtonwindowLink {
     display: inline-block; /* 或者其他显示方式，取决于需要 */
@@ -171,9 +187,29 @@
 <a id="invisibleButtonlaptopLink" href="laptop.html"></a>
 <a id="invisibleButtonscheduleLink" href="schedule.html"></a>
 <a id="invisibleButtonposterLink" href="poster.html"></a>
+<a id="invisibleButtonposter2Link" href="poster.html"></a>
 <a id="invisibleButtonwindowLink" href="window.html"></a>
 
 <script>
+
+function displayText(text, elementId, callback) {
+    const element = document.getElementById(elementId);
+    // 创建一个span元素来包含文本
+    const textSpan = document.createElement('span');
+    textSpan.textContent = text; // 设置文本内容
+    // 应用样式
+    textSpan.style.backgroundColor = 'rgb(4,80,0)'; // 设置背景色
+    textSpan.style.color = 'white'; // 设置字体颜色
+    textSpan.style.padding = '1px'; // 设置内边距
+    // 清空原有内容并添加新的span元素
+    element.innerHTML = ''; // 清除原有内容
+    element.appendChild(textSpan); // 添加新的文本元素
+
+    if (callback) {
+        setTimeout(callback, 500); // 如果需要，之后可以调用回调函数
+    }
+}
+
   function addButtons() {
     const buttonsContainer = document.getElementById('buttonsContainer');
 
@@ -184,7 +220,7 @@
     button1.style.width = '80px';
     button1.style.height = '40px';
     button1.onclick = function() {
-        window.location.href = 'livingroom(notext).html';
+        window.location.href = 'livingroom4.html';
     };
 
 
@@ -194,6 +230,11 @@
 
   // Call addButtons on page load
   window.onload = addButtons;
+
+  displayText("(Click on the items to view them)", "part1", function() {
+    displayText("", "part2", shownextButton);
+});
+
 </script>
 </body>
 </html>

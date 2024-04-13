@@ -35,7 +35,7 @@
                 transform: translateY(100%); /* Start below the screen */
             }
             100% {
-                transform: translateY(-100%); /* End above the screen */
+                transform: translateY(-95%); /* End above the screen */
             }
         }
 
@@ -43,10 +43,12 @@
           font-size: 20px;
             position: relative;
             white-space: pre-wrap; /* Respect newlines and spaces */
-            text-align: center;
+            text-align: left;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            animation: scrollUp 40s linear 1 forwards; /* Adjust timing as necessary */
+            animation: scrollUp 50s linear 1 forwards; /* Adjust timing as necessary */
             line-height: 1.6; /* Increased line spacing */
+            left: -150px;
+            padding-left: 300px;
         }
     
         #imageButton {
@@ -80,11 +82,12 @@ Would everything be better if I returned to reality?
 
 
 Labyrinth Echoes
-Directed by Monica Feng
+
 Produced by Monica Feng
-Background pixel art by Saif Adnan, Pixel Jeff, Chatgpt, @Blear25(tumblr), @minimoss(tumblr), @7her4ja(tumblr)
+Background pixel art by Saif Adnan, Pixel Jeff, Chatgpt, @Blear25(tumblr), 
+@minimoss(tumblr), @7her4ja(tumblr)
+
 Thank you for playing!
-Copyright © 2024 Monica Feng
   </div>
 
 <img id="imageButton" src="rewind.png" alt="Continue" onclick="confirmRedirect();">

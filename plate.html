@@ -106,7 +106,7 @@
           filter: brightness(0.8);
         }
 
-         .xbutton {
+      .xbutton {
         position: fixed;
       top: 4%;
       left: 2%;
@@ -121,11 +121,12 @@
     </head>
     
     <body>
+      
+      <a href="Kitchen2.html">
+        <img src="xbutton.png" alt="xbutton" id="xbutton" class="xbutton">
+      </a>
       <a href="Kitchen2.html">
         <img src="nextbutton.png" alt="Next" id="nextButton" class="nextButton">
-      </a>
-        <a href="Kitchen2.html">
-        <img src="xbutton.png" alt="xbutton" id="xbutton" class="xbutton">
       </a>
     
       <div class="content">
@@ -162,15 +163,31 @@
     function shownextButton() {
       document.getElementById('nextButton').style.display = 'block';
     }
+    function enablePageNavigation() {
+    // 处理点击事件
+    document.body.addEventListener('click', function() {
+        window.location.href = 'Kitchen2.html'; // 将 'nextpage.html' 替换为你的目标页面 URL
+    });
+
+    // 处理键盘事件
+    document.addEventListener('keydown', function(event) {
+        if (event.key === "Enter") {
+            window.location.href = 'Kitchen2.html'; // 将 'nextpage.html' 替换为你的目标页面 URL
+        }
+    });
+  }
     // Start the typing effect for the first part, then the second
     typeWriter("Seems like someone just ate off this plate. Did they just leave?", "part1", function() {
       // Add a delay before starting the second part
       setTimeout(function() {
         typeWriter("But somehow I feel like no one's been here in a long time... Why do I feel that way?", "part2", function() {
-          setTimeout(shownextButton, 500); // Adjust delay as needed
-        });
-      }, 1000); // Adjust delay between the parts as needed
+          setTimeout(function() {
+        shownextButton(); // Show next button
+        enablePageNavigation(); // Enable page navigation after the text has finished typing
+      }, 500); // Adjust delay as needed
     });
+  }, 1000); // Adjust delay between the parts as needed
+});
     
     </script>
     </body>

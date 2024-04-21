@@ -120,15 +120,30 @@ function typeWriter(text, elementId, callback) {
 function shownextButton() {
   document.getElementById('nextButton').style.display = 'block';
 }
+function enablePageNavigation() {
+    // 处理点击事件
+    document.body.addEventListener('click', function() {
+        window.location.href = 'Bedroom2.html'; // 将 'nextpage.html' 替换为你的目标页面 URL
+    });
+
+    // 处理键盘事件
+    document.addEventListener('keydown', function(event) {
+        if (event.key === "Enter") {
+            window.location.href = 'Bedroom2.html'; // 将 'nextpage.html' 替换为你的目标页面 URL
+        }
+    });
+}
 // Start the typing effect for the first part, then the second
 typeWriter("Why am I here? I don't recognize this room.", "part1", function() {
   // Add a delay before starting the second part
   setTimeout(function() {
     typeWriter("My brain feels dizzy but my body feels so light...", "part2", function() {
-      setTimeout(shownextButton, 500); // Adjust delay as needed
+      setTimeout(function() {
+        shownextButton(); // Show next button
+        enablePageNavigation(); // Enable page navigation after the text has finished typing
+      }, 500); // Adjust delay as needed
     });
   }, 500); // Adjust delay between the parts as needed
 });
-
 </script>
 </body>

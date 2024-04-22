@@ -106,10 +106,25 @@
         .nextButton:hover {
         filter: brightness(0.8);
         }
+         .xbutton {
+        position: fixed;
+      top: 4%;
+      left: 2%;
+      width: 27px;
+      height: 27px;
+      }
+
+      .xbutton:hover {
+          filter: brightness(0.8);
+        }
     </style>
     </head>
     
     <body>
+      
+      <a href="bedroom33.html">
+        <img src="xbutton.png" alt="xbutton" id="xbutton" class="xbutton">
+      </a>
       <a href="laptop2.html">
         <img src="nextbutton.png" alt="Next" id="nextButton" class="nextButton">
       </a>
@@ -147,16 +162,32 @@
     function shownextButton() {
       document.getElementById('nextButton').style.display = 'block';
     }
+    function enablePageNavigation() {
+    // 处理点击事件
+    document.body.addEventListener('click', function() {
+        window.location.href = 'laptop2.html'; // 将 'nextpage.html' 替换为你的目标页面 URL
+    });
+
+    // 处理键盘事件
+    document.addEventListener('keydown', function(event) {
+        if (event.key === "Enter") {
+            window.location.href = 'laptop2.html'; // 将 'nextpage.html' 替换为你的目标页面 URL
+        }
+    });
+  }
     setTimeout(function() {
     // Start the typing effect for the first part, then the second
     typeWriter("Seems like some data is being uploaded but encounters an error...", "part1", function() {
       // Add a delay before starting the second part
       setTimeout(function() {
         typeWriter("If I'm guessing correctly...Is this data the so-called 'mental data'?", "part2", function() {
-          setTimeout(shownextButton, 500); // Adjust delay as needed
-        });
-      }, 100); // Adjust delay between the parts as needed
+          setTimeout(function() {
+        shownextButton(); // Show next button
+        enablePageNavigation(); // Enable page navigation after the text has finished typing
+      }, 500); // Adjust delay as needed
     });
+  }, 0); // Adjust delay between the parts as needed
+});
   }, 8000);
 
     </script>

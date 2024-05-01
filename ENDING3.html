@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Labyrinth Echoes</title>
+  <link rel="icon" type="image/ico" href="icon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Workbench&display=swap" rel="stylesheet">
+  
+  
+  <head>
+    <style>
+      body {
+    background-image: url(ending3.gif);
+    position:absolute;
+      width: 100vw; /* 视口宽度 */
+  height: 100vh;
+      background-size: cover;
+    background-position: center 43%;
+    background-repeat: no-repeat; /* 如果你不希望背景图重复，请使用no-repeat */
+    padding: 0;
+    overflow-x: hidden;
+    margin: 0;
+    background-attachment: fixed; 
+      }
+  </style>
+  </head>
+    
+   <style>
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Prevent scrollbar from appearing */
+            color: white; /* Text color */
+            font-family: Workbench, sans-serif; /* Font style */
+            display: flex;
+            align-items: flex-end; /* Start the text at the bottom */
+            justify-content: center;
+        }
+
+        @keyframes fadeandScroll {
+            0% {
+                opacity:0; transform: translateY(100%); /* Start below the screen */
+            }
+            10% {
+              opacity:1; transform: translateY(100%); /* Start below the screen */
+            }
+            100% {
+              opacity:1; transform: translateY(-98%); /* End above the screen */
+            }
+        }
+
+        .credits {
+          font-size: 20px;
+            position: relative;
+            white-space: pre-wrap; /* Respect newlines and spaces */
+            text-align: left;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: fadeandScroll 65s linear 1 forwards; /* Adjust timing as necessary */
+            line-height: 1.6; /* Increased line spacing */
+            left: -150px;
+            padding-left: 300px;
+        }
+    
+        #imageButton {
+            display: none; /* Initially hidden */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="credits">
+ENDING 3/3
+      
+After I answered the last question, I suddenly found myself engulfed in darkness.
+Then, countless scenes flashed before my eyes, each one depicting a moment in somebody's life,
+appearing and vanishing in an instant like a montage.
+I watched as these scenes intertwined, gradually forming a vast and dense network.
+Is this... the real spiritual network?
+After the data leak, I coincidentially entered Dave's spiritual world.
+Now, I am no longer in his world, nor have I returned to reality.
+as if I am left behind in the gaps of the network.
+The system has left me here to witness all this, but now I have nowhere to go.
+What should I do now?
+Will there be a place for me here?
+
+
+
+
+Labyrinth Echoes
+
+Produced by Monica Feng
+Background pixel art by Saif Adnan, Pixel Jeff, Chatgpt, @Blear25(tumblr), 
+@minimoss(tumblr), @7her4ja(tumblr)
+
+Thank you for playing!
+  </div>
+
+<img id="imageButton" src="rewind.png" alt="Continue" onclick="confirmRedirect();">
+
+<script>
+    const credits = document.querySelector('.credits');
+    credits.addEventListener('animationend', () => {
+        document.getElementById('imageButton').style.display = 'block'; // Show the button after animation
+    });
+
+    function confirmRedirect() {
+        if (confirm("This will redirect you to the security questions. Are you sure you want to proceed?")) {
+            window.location.href = 'question1.html'; // Redirect to next page
+        } else {
+
+        }
+      }
+  </script>
+</body>
+</html>
